@@ -25,8 +25,10 @@
         "elsass-seeraiwer/user-bundle": "dev-master",
         "elsass-seeraiwer/bar-bundle": "dev-master",
         "jms/translation-bundle": "dev-master",
+        "jms/serializer-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "1.1.*@dev",
-        "elsass-seeraiwer/article-bundle": "dev-master"
+        "elsass-seeraiwer/article-bundle": "dev-master",
+        "elsass-seeraiwer/menu-bundle": "dev-master"
     },
     "repositories": [
         {

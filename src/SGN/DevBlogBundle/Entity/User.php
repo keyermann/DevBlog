@@ -1,13 +1,13 @@
 <?php
 
-namespace ElsassSeeraiwer\ESDemoBundle\Entity;
+namespace SGN\DevBlogBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="devblog_user")
  */
 class User extends BaseUser
 {

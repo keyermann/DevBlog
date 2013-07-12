@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-#    - { resource: "@ElsassSeeraiwerESBarBundle/Resources/config/toolbar.xml" }
 
 framework:
     #esi:             ~
@@ -69,7 +68,7 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: ElsassSeeraiwer\ESDemoBundle\Entity\User
+    user_class: SGN\DevBlogBundle\Entity\User
 
 elsass_seeraiwer_es_bar:
     toolbar: true
@@ -81,7 +80,7 @@ elsass_seeraiwer_es_bar:
         - { name: "article", template: "ElsassSeeraiwerESArticleBundle:ESBar:articleBar.html.twig", parameters:{'authorized_role': 'ROLE_SUPER_ADMIN'} }
 
 elsass_seeraiwer_es_article:
-    locales: ['en', 'fr']
+    locales: ['fr', 'en']
     tinymce: 
         content_css: 
             # - 'http://localhost/WebITRF/web/bundles/rsitemplate/css/rsi.css'
@@ -105,7 +104,7 @@ elsass_seeraiwer_es_article:
             ]
 
 jms_translation:
-    locales: [en, fr]
+    locales: [fr, en]
     tinymce_mod: []
     configs:
         app:
@@ -119,7 +118,7 @@ jms_translation:
             # extractors: [alias_of_the_extractor]
 
 stof_doctrine_extensions:
-    default_locale: en
+    default_locale: %locale%
     orm:
         default:
             sluggable: true

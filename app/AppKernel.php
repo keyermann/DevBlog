@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new ElsassSeeraiwer\ESDemoBundle\ElsassSeeraiwerESDemoBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new ElsassSeeraiwer\ESUserBundle\ElsassSeeraiwerESUserBundle(),
             new ElsassSeeraiwer\ESBarBundle\ElsassSeeraiwerESBarBundle(),

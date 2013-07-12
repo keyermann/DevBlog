@@ -3,13 +3,15 @@ parameters:
     database_driver: pdo_pgsql
     database_host: localhost
     database_port: null
-    database_name: es_try
+    database_name: devblog
     database_user: hp1111w131
     database_password: secret
+    database_path: null
+
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    locale: en
+
+    locale: fr
     secret: 781bb2fb1042cf75571010987b12f060318
-    database_path: null
