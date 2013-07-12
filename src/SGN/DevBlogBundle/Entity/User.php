@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="sgnmail_user")
+ * @ORM\Entity(repositoryClass="SGN\DevBlogBundle\Entity\UserRepository")
  */
 class User extends BaseUser
 {
@@ -45,6 +46,12 @@ class User extends BaseUser
      * @ORM\Column(name="categorie", type="text", nullable=true)
      */
     private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="unite_id", referencedColumnName="id", nullable=true)
+     **/
+    private $unite;
 
     public function __construct()
     {
@@ -152,5 +159,28 @@ class User extends BaseUser
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set unite
+     *
+     * @param \SGN\DevBlogBundle\Entity\User $unite
+     * @return User
+     */
+    public function setUnite(\SGN\DevBlogBundle\Entity\User $unite = null)
+    {
+        $this->unite = $unite;
+
+        return $this;
+    }
+
+    /**
+     * Get unite
+     *
+     * @return \SGN\DevBlogBundle\Entity\User 
+     */
+    public function getUnite()
+    {
+        return $this->unite;
     }
 }
