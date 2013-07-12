@@ -34,6 +34,15 @@ elsass_seeraiwer_es_article:
     requirements:
         _locale: en|fr
 
+elsass_seeraiwer_es_menu:
+    resource: "@ElsassSeeraiwerESMenuBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    defaults:
+        _locale: fr
+    requirements:
+        _locale: en|fr
+
 # FOSUserBundle
 
 JMSTranslationBundle_ui:

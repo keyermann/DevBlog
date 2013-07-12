@@ -1,10 +1,10 @@
 parameters:
     database_driver: pdo_pgsql
-    database_host: localhost
+    database_host: theHost
     database_port: null
-    database_name: devblog
-    database_user: hp1111w131
-    database_password: secret
+    database_name: theBase
+    database_user: theUser
+    database_password: thePass
     database_path: null
 
     mailer_transport: smtp

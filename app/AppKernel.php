@@ -20,11 +20,14 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new ElsassSeeraiwer\ESUserBundle\ElsassSeeraiwerESUserBundle(),
-            new ElsassSeeraiwer\ESBarBundle\ElsassSeeraiwerESBarBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+
+            new ElsassSeeraiwer\ESUserBundle\ElsassSeeraiwerESUserBundle(),
+            new ElsassSeeraiwer\ESBarBundle\ElsassSeeraiwerESBarBundle(),
             new ElsassSeeraiwer\ESArticleBundle\ElsassSeeraiwerESArticleBundle(),
+            new ElsassSeeraiwer\ESMenuBundle\ElsassSeeraiwerESMenuBundle(),
+
             new SGN\DevBlogBundle\SGNDevBlogBundle(),
             new SGN\TemplateBundle\SGNTemplateBundle(),
         );
