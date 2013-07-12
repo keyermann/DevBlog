@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% block metas %}
+            <meta name="keywords" content="{% block keywords %}{% endblock %}">
+            <meta name="description" content="{% block description %}{% endblock %}">
+            <meta name="geo.region" content="{% block region %}FR{% endblock %}">
+            <meta name="geo.placename" content="{% block placename %}Saint-Mande{% endblock %}">
+            <meta name="geo.position" content="{% block position %}48.845474;2.424425{% endblock %}">
+            <meta name="ICBM" content="{% block ICBM %}48.845474, 2.424425{% endblock %}">
+            <meta name="Viewport" content="width=device-width">     
+        {% endblock %}   
+        <title>{% block title %}SGN Template : Default{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset("bundles/sgntemplate/css/Default/bootstrap.css") }}" />
+            {#<link rel="stylesheet" type="text/css" media="screen" href="{{ asset("bundles/sgntemplate/css/Default/layout.css") }}" />#}
+        {% endblock %}
+        {% block icons %}
+            <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+        {% endblock %}
+        {% block topjavascripts %}{% endblock %}
+    </head>
+    <body style="background-color:white;">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+        <footer>
+            {% block footer %}{% endblock %}
+        </footer>
+
+        {% block javascripts %}
+        <script language="javascript" type="text/javascript" src="{{ asset("bundles/sgntemplate/js/Default/jquery.min.js") }}"></script>
+        <script src="{{ asset('bundles/elsassseeraiweresarticle/js/Default/tinymce/tinymce.min.js') }}"></script>
+        <script src="{{ asset('bundles/elsassseeraiweresarticle/js/Default/tinymce/jquery.tinymce.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -26,6 +26,8 @@ class AppKernel extends Kernel
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new ElsassSeeraiwer\ESArticleBundle\ElsassSeeraiwerESArticleBundle(),
+            new SGN\DevBlogBundle\SGNDevBlogBundle(),
+            new SGN\TemplateBundle\SGNTemplateBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

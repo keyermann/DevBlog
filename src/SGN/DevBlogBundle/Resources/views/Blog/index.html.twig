@@ -1,0 +1,12 @@
+{% extends "SGNTemplateBundle:Default:base.html.twig" %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ asset("bundles/sgndevblog/css/devblog.css") }}" />
+{% endblock %}
+
+{% block header %}
+<div class="container">
+	<h1>SGN - DevBlog</h1>
+</div>
+{% endblock %}

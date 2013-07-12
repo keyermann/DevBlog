@@ -1,14 +1,7 @@
-elsass_seeraiwer_es_article:
-    resource: "@ElsassSeeraiwerESArticleBundle/Controller/"
-    type:     annotation
-    prefix:   /{_locale}
-    defaults:
-        _locale: en
-    requirements:
-        _locale: en|fr
 
-elsass_seeraiwer_es_demo:
-    resource: "@ElsassSeeraiwerESDemoBundle/Controller/"
+
+sgn_dev_blog:
+    resource: "@SGNDevBlogBundle/Controller/"
     type:     annotation
     prefix:   /{_locale}
     defaults:
@@ -23,16 +16,30 @@ _welcome:
         path: /en/
         permanent: true
 
-# ESBarBundle
+sgn_template:
+    resource: "@SGNTemplateBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/sgnt
 
-#elsass_seeraiwer_es_bar:
-#    resource: "@ElsassSeeraiwerESBarBundle/Controller/"
-#    type:     annotation
-#    prefix:   /{_locale}
-#    defaults:
-#        _locale: en
-#    requirements:
-#        _locale: en|fr
+# ElsassSeeraiwerBundles : 
+
+# elsass_seeraiwer_es_demo:
+#     resource: "@ElsassSeeraiwerESDemoBundle/Controller/"
+#     type:     annotation
+#     prefix:   /{_locale}
+#     defaults:
+#         _locale: en
+#     requirements:
+#         _locale: en|fr
+
+elsass_seeraiwer_es_article:
+    resource: "@ElsassSeeraiwerESArticleBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
 
 # FOSUserBundle
 
