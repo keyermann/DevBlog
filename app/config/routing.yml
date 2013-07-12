@@ -1,0 +1,86 @@
+elsass_seeraiwer_es_article:
+    resource: "@ElsassSeeraiwerESArticleBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
+
+elsass_seeraiwer_es_demo:
+    resource: "@ElsassSeeraiwerESDemoBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
+
+_welcome:
+    pattern:  /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en/
+        permanent: true
+
+# ESBarBundle
+
+#elsass_seeraiwer_es_bar:
+#    resource: "@ElsassSeeraiwerESBarBundle/Controller/"
+#    type:     annotation
+#    prefix:   /{_locale}
+#    defaults:
+#        _locale: en
+#    requirements:
+#        _locale: en|fr
+
+# FOSUserBundle
+
+JMSTranslationBundle_ui:
+    resource: @JMSTranslationBundle/Controller/
+    type:     annotation
+    prefix:   /{_locale}/_trans
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix:   /{_locale}
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /{_locale}/profile
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /{_locale}/register
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /{_locale}/resetting
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /{_locale}/profile
+    defaults:
+        _locale: en
+    requirements:
+        _locale: en|fr
