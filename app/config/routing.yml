@@ -1,7 +1,23 @@
-sgn_user:
-    resource: "@SGNUserBundle/Controller/"
-    type:     annotation
-    prefix:   /
+_welcome:
+    pattern:  /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /fr/
+        permanent: true
+
+# afin d'éviter le "duplicate content" (SEO)
+_page1_fr:
+    pattern:  /fr/page1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /fr/
+        permanent: true
+_page1_en:
+    pattern:  /en/page1/
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /en/
+        permanent: true
 
 sgn_dev_blog:
     resource: "@SGNDevBlogBundle/Controller/"
@@ -11,13 +27,6 @@ sgn_dev_blog:
         _locale: fr
     requirements:
         _locale: en|fr
-
-_welcome:
-    pattern:  /
-    defaults:
-        _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /fr/
-        permanent: true
 
 sgn_template:
     resource: "@SGNTemplateBundle/Controller/"

@@ -1,14 +1,14 @@
 <?php
 
-namespace SGN\DevBlogBundle\Entity;
+namespace SGN\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="sgnmail_user")
- * @ORM\Entity(repositoryClass="SGN\DevBlogBundle\Entity\UserRepository")
+ * @ORM\Table(name="sgnuser")
+ * @ORM\Entity(repositoryClass="SGN\UserBundle\Entity\UserRepository")
  */
 class User extends BaseUser
 {
@@ -164,10 +164,10 @@ class User extends BaseUser
     /**
      * Set unite
      *
-     * @param \SGN\DevBlogBundle\Entity\User $unite
+     * @param \SGN\UserBundle\Entity\User $unite
      * @return User
      */
-    public function setUnite(\SGN\DevBlogBundle\Entity\User $unite = null)
+    public function setUnite(\SGN\UserBundle\Entity\User $unite = null)
     {
         $this->unite = $unite;
 
@@ -177,7 +177,7 @@ class User extends BaseUser
     /**
      * Get unite
      *
-     * @return \SGN\DevBlogBundle\Entity\User 
+     * @return \SGN\UserBundle\Entity\User 
      */
     public function getUnite()
     {

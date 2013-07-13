@@ -5,6 +5,26 @@
 	<img style="margin-left:5px;" src="{{ asset('bundles/sgndevblog/images/lego.png') }}" alt="logo" />
 {% endblock %}
 
-{% block header_p %}Ressources, innovation, bonnes pratiques et actualité des développements au SGN.{% endblock %}
+{% block header_p %}Ressources, bonnes pratiques et actualité des développements au SGN.{% endblock %}
 
-{% block body %}Site en construction...{% endblock %}
+{% block body %}
+	{% if entities is not empty %}
+	    <article>
+	        {% for entity in entities %}</ul>
+	            {{ entity.slug|article() }}
+	        {% endfor %}
+	    </article>
+	 
+	    {% if pager.haveToPaginate %}
+	        {{ pagerfanta(pager, 'twitter_bootstrap_translated', {'routeName': 'sgn_devblog_blog_index_1'}) }}
+	    {% endif %}
+	{% else %}
+	    <p>Aucun article trouvée.</p>
+	{% endif %}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    {{ article_script('ROLE_DEV_ADMIN', false) }}
+    {{ transEditScript('ROLE_TRANSLATOR', false) }}
+{% endblock %}

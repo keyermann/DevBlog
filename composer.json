@@ -28,7 +28,8 @@
         "jms/serializer-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "1.1.*@dev",
         "elsass-seeraiwer/article-bundle": "dev-master",
-        "elsass-seeraiwer/menu-bundle": "dev-master"
+        "elsass-seeraiwer/menu-bundle": "dev-master",
+        "white-october/pagerfanta-bundle": "dev-master"
     },
     "repositories": [
         {

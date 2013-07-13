@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 
             new ElsassSeeraiwer\ESUserBundle\ElsassSeeraiwerESUserBundle(),
             new ElsassSeeraiwer\ESBarBundle\ElsassSeeraiwerESBarBundle(),

@@ -1,6 +1,6 @@
 <?php
 
-namespace SGN\DevBlogBundle\Entity;
+namespace SGN\UserBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -16,7 +16,7 @@ class UserRepository extends EntityRepository
 	{
 		$em = $this->getEntityManager();
 
-		$query = $em->createQuery("SELECT u FROM SGNMailBundle:User u LEFT JOIN u.unite a WHERE u.categorie = '1-UTILISATEUR' ORDER BY a.username ASC, u.username ASC");
+		$query = $em->createQuery("SELECT u FROM SGNUserBundle:User u LEFT JOIN u.unite a WHERE u.categorie = '1-UTILISATEUR' ORDER BY a.username ASC, u.username ASC");
 
 		$result = $query->getResult();
 
@@ -27,7 +27,7 @@ class UserRepository extends EntityRepository
 	{
 		$em = $this->getEntityManager();
 
-		$query = $em->createQuery("SELECT u FROM SGNMailBundle:User u LEFT JOIN u.unite a WHERE a.username = '".$unit."' AND u.categorie = '1-UTILISATEUR' ORDER BY a.username ASC, u.username ASC");
+		$query = $em->createQuery("SELECT u FROM SGNUserBundle:User u LEFT JOIN u.unite a WHERE a.username = '".$unit."' AND u.categorie = '1-UTILISATEUR' ORDER BY a.username ASC, u.username ASC");
 
 		$result = $query->getResult();
 

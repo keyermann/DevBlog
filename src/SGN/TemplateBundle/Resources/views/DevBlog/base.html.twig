@@ -33,7 +33,16 @@
             {% endblock %}
         </header>
         <div class="container">
-            {% block body %}{% endblock %}
+            <div class="row">
+                <div class="span3 bs-docs-sidebar">
+                    <nav id="sidenav">
+                        {% block sidemenu %}{{ esMenu('main') }}{% endblock %}
+                    </nav>
+                </div>
+                <div class="span9">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
         </div>
         <footer>
             {% block footer %}{% endblock %}
@@ -42,6 +51,12 @@
         {% block javascripts %}
             <script src="{{ asset('bundles/sgntemplate/js/jquery-1.10.2/jquery.min.js') }}"></script>
             <script src="{{ asset('bundles/sgntemplate/js/bootstrap-2.3.2/bootstrap.min.js') }}"></script>
+            <script>
+                $('#sidenav').affix({'offset': {
+                    top: 210, 
+                    bottom: 270
+                }});
+            </script>
         {% endblock %}
     </body>
 </html>
