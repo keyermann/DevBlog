@@ -407,12 +407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElsassSeeraiwer/ESArticleBundle.git",
-                "reference": "005e236f5534fd93f2756d788d46ced160963c1c"
+                "reference": "592c6f53910fc873ad7fb2e7229e2cfe037232b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESArticleBundle/zipball/005e236f5534fd93f2756d788d46ced160963c1c",
-                "reference": "005e236f5534fd93f2756d788d46ced160963c1c",
+                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESArticleBundle/zipball/592c6f53910fc873ad7fb2e7229e2cfe037232b2",
+                "reference": "592c6f53910fc873ad7fb2e7229e2cfe037232b2",
                 "shasum": ""
             },
             "require": {
@@ -435,7 +435,7 @@
                 }
             ],
             "description": "Symfony ElsassSeeraiwer/ESArticleBundle",
-            "time": "2013-06-27 13:09:52"
+            "time": "2013-07-13 16:16:08"
         },
         {
             "name": "elsass-seeraiwer/bar-bundle",
@@ -444,12 +444,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElsassSeeraiwer/ESBarBundle.git",
-                "reference": "5b6f3acc2e6bbb65590b87c27c6417ce67d39531"
+                "reference": "220dccc70d2c1f59ff5bacef5211c59585b6763b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESBarBundle/zipball/5b6f3acc2e6bbb65590b87c27c6417ce67d39531",
-                "reference": "5b6f3acc2e6bbb65590b87c27c6417ce67d39531",
+                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESBarBundle/zipball/220dccc70d2c1f59ff5bacef5211c59585b6763b",
+                "reference": "220dccc70d2c1f59ff5bacef5211c59585b6763b",
                 "shasum": ""
             },
             "require": {
@@ -472,7 +472,7 @@
                 }
             ],
             "description": "Symfony ElsassSeeraiwer/ESBarBundle",
-            "time": "2013-06-14 08:15:45"
+            "time": "2013-07-13 12:08:20"
         },
         {
             "name": "elsass-seeraiwer/menu-bundle",
@@ -481,12 +481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElsassSeeraiwer/ESMenuBundle.git",
-                "reference": "315e949f65beea84538907556d29e68e31d0a579"
+                "reference": "2fc5beef5e7c95a222e9f24536572ce307c803a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESMenuBundle/zipball/315e949f65beea84538907556d29e68e31d0a579",
-                "reference": "315e949f65beea84538907556d29e68e31d0a579",
+                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESMenuBundle/zipball/2fc5beef5e7c95a222e9f24536572ce307c803a2",
+                "reference": "2fc5beef5e7c95a222e9f24536572ce307c803a2",
                 "shasum": ""
             },
             "require": {
@@ -509,7 +509,7 @@
                 }
             ],
             "description": "Symfony ElsassSeeraiwer/ESMenuBundle",
-            "time": "2013-07-12 08:29:43"
+            "time": "2013-07-13 12:15:47"
         },
         {
             "name": "elsass-seeraiwer/user-bundle",
