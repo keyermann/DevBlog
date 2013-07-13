@@ -1,3 +1,8 @@
+sgn_user:
+    resource: "@SGNUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 sgn_dev_blog:
     resource: "@SGNDevBlogBundle/Controller/"
     type:     annotation

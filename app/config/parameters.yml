@@ -3,7 +3,7 @@ parameters:
     database_driver: pdo_pgsql
     database_host: localhost
     database_port: '5432'
-    database_name: courrier
+    database_name: devblog
     database_user: postgres
     database_password: k123_igs
     database_path: null

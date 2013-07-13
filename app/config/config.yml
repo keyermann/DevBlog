@@ -75,7 +75,7 @@ swiftmailer:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: SGN\DevBlogBundle\Entity\User
+    user_class: SGN\UserBundle\Entity\User
 
 elsass_seeraiwer_es_bar:
     toolbar: true

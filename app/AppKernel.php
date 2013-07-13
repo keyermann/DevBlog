@@ -30,6 +30,7 @@ class AppKernel extends Kernel
 
             new SGN\DevBlogBundle\SGNDevBlogBundle(),
             new SGN\TemplateBundle\SGNTemplateBundle(),
+            new SGN\UserBundle\SGNUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
