@@ -14,3 +14,5 @@ parameters:
 
     locale: fr
     secret: 781bb2fb1042cf75571010987b12f060318
+
+    completehost: http://localhost/devblog/
