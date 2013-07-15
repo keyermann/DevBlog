@@ -95,8 +95,8 @@ elsass_seeraiwer_es_article:
         content_css: 
             # - 'http://localhost/WebITRF/web/bundles/rsitemplate/css/rsi.css'
             # - 'http://localhost/WebITRF/web/bundles/itrfwebsite/css/itrf.css'
-        plugin: "hr link table save print anchor searchreplace fullscreen charmap visualblocks image media nonbreaking autolink advlist contextmenu"
-        toolbar1: "save | undo redo | removeformat | styleselect | fullscreen print | cut copy paste | searchreplace | hr anchor link table charmap visualblocks nonbreaking"
+        plugin: "hr link table save anchor searchreplace fullscreen charmap visualblocks image media nonbreaking autolink advlist contextmenu"
+        toolbar1: "save | undo redo | removeformat | styleselect | fullscreen | cut copy paste | searchreplace | hr anchor link table charmap visualblocks nonbreaking"
         toolbar2: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent blockquote | subscript superscript"
         contextmenu: "bold italic underline strikethrough | link image inserttable | cell row column deletetable"
         tools: "inserttable"

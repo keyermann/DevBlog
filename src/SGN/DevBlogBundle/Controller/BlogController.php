@@ -26,6 +26,7 @@ class BlogController extends Controller
 	        ->select('a')
 	        ->from('ElsassSeeraiwerESArticleBundle:Article', 'a')
 	        ->where("a.status = 'published'")
+   			->orderBy('a.createDate', 'DESC');
 	    ;
 
 	    // Classe spécifique à Doctrine, il existe un équivalent pour Propel.
@@ -38,7 +39,7 @@ class BlogController extends Controller
 		{
 	        $entities = $pagerfanta
 	            // Le nombre maximum d'éléments par page
-	            ->setMaxPerPage(10)
+	            ->setMaxPerPage(3)
 	            // Notre position actuelle (numéro de page)
 	            ->setCurrentPage($page)
 	            // On récupère nos entités via Pagerfanta,

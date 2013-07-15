@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="sgnuser")
+ * @ORM\Table(name="sgnmail_user")
  * @ORM\Entity(repositoryClass="SGN\UserBundle\Entity\UserRepository")
  */
 class User extends BaseUser

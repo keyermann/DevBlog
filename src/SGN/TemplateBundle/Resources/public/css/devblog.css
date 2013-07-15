@@ -143,3 +143,48 @@ div.esbarLocale {
 	top: auto;
 	bottom: 270px;
 }
+
+/********************************************/
+
+article {
+	padding-top: 30px;
+	margin-bottom:10px;
+}
+
+article h2 {
+	color: #5A5A5A;
+	padding-bottom: 9px;
+	margin: 20px 0 30px;
+	border-bottom: 1px solid #EEE;
+}
+
+div.articles_tags_view,
+div.articles_tags_edit {
+	margin-bottom:20px;
+}
+
+/********************************************/
+
+body>footer {
+	min-height:100px;
+	text-align: center;
+	padding: 30px 0;
+	margin-top: 40px;
+	border-top: 1px solid #E5E5E5;
+	background-color: #F5F5F5;
+}
+
+body>footer p {
+	margin-bottom: 0;
+	color: #777;
+}
+
+body>footer ul.footer-links {
+
+	margin: 10px 0;
+}
+
+body>footer ul.footer-links li {
+	display: inline;
+	margin-right: 15px;
+}

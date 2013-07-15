@@ -7,13 +7,13 @@
 
 {% block header_p %}Ressources, bonnes pratiques et actualité des développements au SGN.{% endblock %}
 
+{% block sidemenu %}{{ esMenu('main') }}{% endblock %}
+
 {% block body %}
 	{% if entities is not empty %}
-	    <article>
-	        {% for entity in entities %}</ul>
-	            {{ entity.slug|article() }}
-	        {% endfor %}
-	    </article>
+        {% for entity in entities %}</ul>
+            {{ entity.slug|article() }}
+        {% endfor %}
 	 
 	    {% if pager.haveToPaginate %}
 	        {{ pagerfanta(pager, 'twitter_bootstrap_translated', {'routeName': 'sgn_devblog_blog_index_1'}) }}
@@ -21,6 +21,12 @@
 	{% else %}
 	    <p>Aucun article trouvée.</p>
 	{% endif %}
+{% endblock %}
+                    
+{% block footer_container %}
+	<p>Ce site a été créé pour le SGN par <span style="color:#444;">Kévin Eyermann</span> (<a href="mailto:kevin.eyermann@ign.fr">email</a>, <a href="http://twitter.com/Kreviouss">Twitter</a>, <a href="https://plus.google.com/103007505577713142780">Google+</a>).</p>
+	<p>Il a pour but de centraliser les échanges entre les développeurs,<br/>organiser les développements, et permettre une meilleur communication.</p>
+	{{ esMenu('footer_link') }}
 {% endblock %}
 
 {% block javascripts %}
