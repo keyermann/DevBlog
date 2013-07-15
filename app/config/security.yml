@@ -35,11 +35,17 @@ security:
         - { path: ^/[a-z][a-z]/login_check$,      role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/[a-z][a-z]/register,          role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/[a-z][a-z]/resetting,         role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/[a-z][a-z]/article/,          role: ROLE_DEV }
+        - { path: ^/[a-z][a-z]/_trans/,           role: ROLE_TRANSLATION }
+        - { path: ^/[a-z][a-z]/menu/,             role: ROLE_MENU }
         - { path: ^/[a-z][a-z]/admin/,            role: ROLE_ADMIN }
         - { path: ^/,                             role: IS_AUTHENTICATED_ANONYMOUSLY } 
 
     role_hierarchy:
-        ROLE_DEV:         ROLE_USER
+        ROLE_TRANSLATION: ROLE_USER
+        ROLE_MENU:        ROLE_USER
+        ROLE_ARTICLE:     ROLE_USER
+        ROLE_DEV:         [ROLE_USER, ROLE_ARTICLE]
         ROLE_DEV_ADMIN:   ROLE_DEV
-        ROLE_ADMIN:       [ROLE_USER, ROLE_DEV_ADMIN]
+        ROLE_ADMIN:       [ROLE_USER, ROLE_DEV_ADMIN, ROLE_TRANSLATION, ROLE_MENU]
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
