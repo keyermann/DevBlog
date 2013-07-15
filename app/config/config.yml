@@ -25,6 +25,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        completehost: %completehost%
 
 # Assetic Configuration
 assetic:
@@ -93,7 +95,9 @@ elsass_seeraiwer_es_article:
     locales: ['fr', 'en']
     tinymce: 
         content_css: 
-            # - 'http://localhost/WebITRF/web/bundles/rsitemplate/css/rsi.css'
+            - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap.min.css"
+            - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap-responsive.min.css"
+            - "%completehost%/bundles/sgntemplate/css/devblog.css"
             # - 'http://localhost/WebITRF/web/bundles/itrfwebsite/css/itrf.css'
         plugin: "hr link table save anchor searchreplace fullscreen charmap visualblocks image media nonbreaking autolink advlist contextmenu"
         toolbar1: "save | undo redo | removeformat | styleselect | fullscreen | cut copy paste | searchreplace | hr anchor link table charmap visualblocks nonbreaking"
