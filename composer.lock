@@ -407,12 +407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElsassSeeraiwer/ESArticleBundle.git",
-                "reference": "86ace542ecfe1148177785a88c6259c9ec0137fe"
+                "reference": "0f070809515df2121d108055531a32b09d477ce3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESArticleBundle/zipball/86ace542ecfe1148177785a88c6259c9ec0137fe",
-                "reference": "86ace542ecfe1148177785a88c6259c9ec0137fe",
+                "url": "https://api.github.com/repos/ElsassSeeraiwer/ESArticleBundle/zipball/0f070809515df2121d108055531a32b09d477ce3",
+                "reference": "0f070809515df2121d108055531a32b09d477ce3",
                 "shasum": ""
             },
             "require": {
@@ -435,7 +435,7 @@
                 }
             ],
             "description": "Symfony ElsassSeeraiwer/ESArticleBundle",
-            "time": "2013-07-15 04:37:21"
+            "time": "2013-07-15 10:59:50"
         },
         {
             "name": "elsass-seeraiwer/bar-bundle",
