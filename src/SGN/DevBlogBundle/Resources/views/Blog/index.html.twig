@@ -19,7 +19,9 @@
 	        {{ pagerfanta(pager, 'twitter_bootstrap_translated', {'routeName': 'sgn_devblog_blog_index_1'}) }}
 	    {% endif %}
 	{% else %}
-	    <p>Aucun article trouvée.</p>
+		<div class="alert" style="margin-top: 30px;">
+			Aucun article trouvé {% if tagList is defined%}pour les tags suivants : {% for tag in tagList %}<a class="btn btn-info" href="{{ path('sgn_devblog_blog_tags_1',{'tags': tag}) }}" title="{{ tag }}">#{{ tag }}</a>{% endfor %}{% endif %}.
+		</div>
 	{% endif %}
 {% endblock %}
                     
