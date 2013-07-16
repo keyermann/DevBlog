@@ -42,7 +42,7 @@ sgn_template:
 elsass_seeraiwer_es_article:
     resource: "@ElsassSeeraiwerESArticleBundle/Controller/"
     type:     annotation
-    prefix:   /{_locale}
+    prefix:   /{_locale}/admin
     defaults:
         _locale: fr
     requirements:
@@ -51,7 +51,7 @@ elsass_seeraiwer_es_article:
 elsass_seeraiwer_es_menu:
     resource: "@ElsassSeeraiwerESMenuBundle/Controller/"
     type:     annotation
-    prefix:   /{_locale}
+    prefix:   /{_locale}/admin
     defaults:
         _locale: fr
     requirements:
@@ -62,7 +62,7 @@ elsass_seeraiwer_es_menu:
 JMSTranslationBundle_ui:
     resource: @JMSTranslationBundle/Controller/
     type:     annotation
-    prefix:   /{_locale}/_trans
+    prefix:   /{_locale}/admin/translation
     defaults:
         _locale: fr
     requirements:

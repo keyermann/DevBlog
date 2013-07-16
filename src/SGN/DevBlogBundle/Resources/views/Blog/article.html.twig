@@ -1,0 +1,26 @@
+{% extends "SGNTemplateBundle:DevBlog:base.html.twig" %}
+
+{% block header_h1 %}
+	<small>The</small>DevBlog
+	<img style="margin-left:5px;" src="{{ asset('bundles/sgndevblog/images/lego.png') }}" alt="logo" />
+{% endblock %}
+
+{% block header_p %}Ressources, bonnes pratiques et actualité des développements au SGN.{% endblock %}
+
+{% block sidemenu %}{{ esMenu('main') }}{% endblock %}
+
+{% block body %}
+    {{ slug|article() }}
+{% endblock %}
+                    
+{% block footer_container %}
+	<p>Ce site a été créé pour le SGN par <span style="color:#444;">Kévin Eyermann</span> (<a href="mailto:kevin.eyermann@ign.fr">email</a>, <a href="http://twitter.com/Kreviouss">Twitter</a>, <a href="https://plus.google.com/103007505577713142780">Google+</a>).</p>
+	<p>Il a pour but de centraliser les échanges entre les développeurs,<br/>organiser les développements, et permettre une meilleur communication.</p>
+	{{ esMenu('footer_link') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+    {{ article_script('', false) }}
+    {{ transEditScript('', false) }}
+{% endblock %}

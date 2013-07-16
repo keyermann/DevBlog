@@ -180,3 +180,7 @@ body>footer ul.footer-links li {
 	display: inline;
 	margin-right: 15px;
 }
+
+.btn {
+	margin: 2px 0;
+}

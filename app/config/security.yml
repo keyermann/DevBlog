@@ -38,7 +38,6 @@ security:
         - { path: ^/[a-z][a-z]/article/,          role: ROLE_DEV }
         - { path: ^/[a-z][a-z]/_trans/,           role: ROLE_TRANSLATION }
         - { path: ^/[a-z][a-z]/menu/,             role: ROLE_MENU }
-        - { path: ^/[a-z][a-z]/admin/,            role: ROLE_ADMIN }
         - { path: ^/,                             role: IS_AUTHENTICATED_ANONYMOUSLY } 
 
     role_hierarchy:

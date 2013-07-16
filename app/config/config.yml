@@ -95,7 +95,6 @@ elsass_seeraiwer_es_article:
     locales: ['fr', 'en']
     default_authorized_role:  ROLE_DEV
     tagpath: 'sgn_devblog_blog_tags_1'
-    tagpathparams: "{'tags': '#tags#'}"
     tinymce: 
         content_css: 
             - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap.min.css"

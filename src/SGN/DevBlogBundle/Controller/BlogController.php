@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Pagerfanta\Exception\NotValidCurrentPageException;
+use ElsassSeeraiwer\ESArticleBundle\Entity\Article;
 
 class BlogController extends Controller
 {
@@ -55,7 +56,6 @@ class BlogController extends Controller
 	        'entities' 	=> $entities,
 	        'pager' 	=> $pagerfanta,
 	    );
-	    return array();
     }
 
     /**
@@ -110,6 +110,12 @@ class BlogController extends Controller
 	        'pager' 	=> $pagerfanta,
 	        'tagList'	=> $tagList,
 	    );
-	    return array();
+    }
+
+    /**
+	 * @Route("/article/{slug}/")
+     * @Template()
+     */
+    public function articleAction($slug){
     }
 }
