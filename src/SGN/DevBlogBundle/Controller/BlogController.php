@@ -27,7 +27,7 @@ class BlogController extends Controller
 		    }
     		return ($a['a'] < $b['a']) ? 1 : -1;
     	};
-    	
+
         $em = $this->getDoctrine()->getManager();
         $ArticleRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Article');
 
@@ -48,9 +48,10 @@ class BlogController extends Controller
 	        ->select('a')
 	        ->from('ElsassSeeraiwerESArticleBundle:Article', 'a')
 	        ->where("a.status = 'published'")
-	        ->andWhere("a.id NOT IN (".implode(",", $ignoreId).")")
-   			->orderBy('a.createDate', 'DESC');
-	    ;
+        ;
+
+	    if(count($ignoreId) > 0){ $qb->andWhere("a.id NOT IN (".implode(",", $ignoreId).")"); }
+   		$qb->orderBy('a.createDate', 'DESC');
 
         $TagRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Tag');
         $TagMenuEntities = $TagRepo->getAllByCount();
