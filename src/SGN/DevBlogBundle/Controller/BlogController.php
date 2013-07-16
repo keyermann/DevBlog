@@ -29,6 +29,9 @@ class BlogController extends Controller
    			->orderBy('a.createDate', 'DESC');
 	    ;
 
+        $TagRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Tag');
+        $TagMenuEntities = $TagRepo->getAllByCount();
+
 	    // Classe spécifique à Doctrine, il existe un équivalent pour Propel.
 	    // Prend le QueryBuilder de notre requête en paramètre de son constructeur.
 	    // Vous pouriez aussi utiliser un DoctrineCollectionAdapter pour paginer une collection déjà récupérée.
@@ -55,6 +58,7 @@ class BlogController extends Controller
 	    return array(
 	        'entities' 	=> $entities,
 	        'pager' 	=> $pagerfanta,
+	        'tagElems'	=> $TagMenuEntities,
 	    );
     }
 
@@ -104,11 +108,14 @@ class BlogController extends Controller
 	    {
 	        throw $this->createNotFoundException("Cette page n'existe pas.");
 	    }
+
+        $TagMenuEntities = $this->createTagListFromArticles($entities, $tagList);
  
 	    return array(
 	        'entities' 	=> $entities,
 	        'pager' 	=> $pagerfanta,
 	        'tagList'	=> $tagList,
+	        'tagElems'	=> $TagMenuEntities,
 	    );
     }
 
@@ -117,5 +124,43 @@ class BlogController extends Controller
      * @Template()
      */
     public function articleAction($slug){
+    }
+
+    private function createTagListFromArticles($articles, $tagListIgnore)
+    {
+    	$TagEntities = array();
+
+    	$cmp = function($a, $b)
+    	{
+    		if ($a['a'] == $b['a'])
+    		{
+		        return 0;
+		    }
+    		return ($a['a'] < $b['a']) ? 1 : -1;
+    	};
+
+    	foreach($articles as $article)
+    	{
+    		$tags = $article->getTags();
+    		foreach ($tags as $tag)
+    		{
+    			if(in_array($tag->getName(), $tagListIgnore))
+    			{
+    				continue;
+    			}
+    			if(!isset($TagEntities[$tag->getName()]))
+    			{
+    				$TagEntities[$tag->getName()][0] = $tag;
+    				$TagEntities[$tag->getName()]['a'] = 1;
+    			}
+    			else 
+    			{
+    				$TagEntities[$tag->getName()]['a']++;
+    			}
+    		}
+    	}
+    	uasort($TagEntities, 'cmp');
+
+    	return $TagEntities;
     }
 }

@@ -5,9 +5,30 @@
 	<img style="margin-left:5px;" src="{{ asset('bundles/sgndevblog/images/lego.png') }}" alt="logo" />
 {% endblock %}
 
+{% block stylesheets %}
+	{{ parent() }}
+    <link rel="stylesheet" media="screen" href="{{ asset('bundles/sgndevblog/css/devblog.css') }}" />
+{% endblock %}
+
 {% block header_p %}Ressources, bonnes pratiques et actualité des développements au SGN.{% endblock %}
 
-{% block sidemenu %}{{ esMenu('main') }}{% endblock %}
+{% block sidemenu %}
+	{{ esMenu('main') }}
+	{% if tagElems is defined %}
+		<h5 style="text-align:left;">Liste des tags : </h5>
+		<div id="tagList">
+		{% if tagList is defined%}
+			{% for tag in tagElems %}
+				<a class="btn btn-info" href="{{ path('sgn_devblog_blog_tags_1', {'tags': tagList|join('/') ~ '/' ~ tag[0].name}) }}" title="{{ tag[0].name }}">#{{ tag[0].name }}</a> <em class="nbUse">({{ tag['a'] }})</em><br/>
+			{% endfor %}
+		{% else %}
+			{% for tag in tagElems %}
+				<a class="btn btn-info" href="{{ path('sgn_devblog_blog_tags_1', {'tags': tag[0].name}) }}" title="{{ tag[0].name }}">#{{ tag[0].name }}</a> <em class="nbUse">({{ tag['a'] }})</em><br/>
+			{% endfor %}
+		{% endif %}
+		</div>
+	{% endif %}
+{% endblock %}
 
 {% block body %}
 	{% if entities is not empty %}
