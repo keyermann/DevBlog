@@ -77,7 +77,7 @@ class BlogController extends Controller
 	        ->leftJoin("a.tags", 't')
 	        ->where("a.status = 'published'")
 	        ->andWhere("t.name IN ('".implode("','", $tagList)."')")
-	        ->groupBy('a.id')
+	        ->groupBy('a')
 	    	->having('COUNT(a.id) = '.$nbTagList)
 	    	->orderBy('a.createDate', 'DESC')
     	;
