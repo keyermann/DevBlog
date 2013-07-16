@@ -19,18 +19,46 @@ class BlogController extends Controller
      */
     public function indexAction($page)
     {
+    	$cmp = function($a, $b)
+    	{
+    		if ($a['a'] == $b['a'])
+    		{
+		        return 0;
+		    }
+    		return ($a['a'] < $b['a']) ? 1 : -1;
+    	};
+    	
         $em = $this->getDoctrine()->getManager();
         $ArticleRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Article');
+
+	    $qbIgnore = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
+	        ->select('a.id')
+	        ->from('ElsassSeeraiwerESArticleBundle:Article', 'a')
+	        ->leftJoin("a.tags", 't')
+	        ->where("t.name = 'pour-les-curieux'");
+	    ;
+
+	    $ignoreIdRes = $qbIgnore->getQuery()->getArrayResult();
+	    $ignoreId= array();
+	    foreach ($ignoreIdRes as $key => $value) {
+	    	$ignoreId[] = $value['id'];
+	    }
 
 	    $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
 	        ->select('a')
 	        ->from('ElsassSeeraiwerESArticleBundle:Article', 'a')
 	        ->where("a.status = 'published'")
+	        ->andWhere("a.id NOT IN (".implode(",", $ignoreId).")")
    			->orderBy('a.createDate', 'DESC');
 	    ;
 
         $TagRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Tag');
         $TagMenuEntities = $TagRepo->getAllByCount();
+
+        foreach ($TagMenuEntities as $key => $value) {
+        	$TagMenuEntities[$key]['a'] = $value[0]->getPublishedArticlesLength();
+        }
+    	uasort($TagMenuEntities, 'cmp');
 
 	    // Classe spécifique à Doctrine, il existe un équivalent pour Propel.
 	    // Prend le QueryBuilder de notre requête en paramètre de son constructeur.

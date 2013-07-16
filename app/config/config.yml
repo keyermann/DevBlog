@@ -81,7 +81,8 @@ fos_user:
 
 elsass_seeraiwer_es_bar:
     toolbar: true
-    classname: container
+    classname: navbar-fixed-top
+    innerclassname: container
     locale_tool: true
     registration: false
     templates:
