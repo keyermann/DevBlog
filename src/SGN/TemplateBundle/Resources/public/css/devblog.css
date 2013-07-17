@@ -1,8 +1,7 @@
 body>header {
-	padding: 25px 0 0 15px;
 	position: relative;
 	border-bottom: 1px solid #DDD;
-	padding: 40px 0;
+	padding: 70px 0 40px;
 	color: #FFF;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 80px;
@@ -139,7 +138,6 @@ body>nav {
 /********************************************/
 
 article {
-	padding-top: 30px;
 	margin-bottom:10px;
 }
 
@@ -152,7 +150,7 @@ article h2 {
 
 div.articles_tags_view,
 div.articles_tags_edit {
-	margin-bottom:20px;
+	margin-bottom:30px;
 }
 
 /********************************************/

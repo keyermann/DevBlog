@@ -29,6 +29,7 @@
             <div class="container">
                 <h1>{% block header_h1 %}DevBlog Template{% endblock %}</h1>
                 <p class="lead">{% block header_p %}Le template du site DevBlog{% endblock %}</p>
+                {% block header_container_more %}{% endblock %}
             </div>
             {% endblock %}
         </header>
@@ -39,7 +40,7 @@
                         {% block sidemenu %}{% endblock %}
                     </nav>
                 </div>
-                <div class="span9">
+                <div class="span9" style="padding-top:30px;">
                     {% block body %}{% endblock %}
                 </div>
             </div>

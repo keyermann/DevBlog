@@ -12,8 +12,23 @@
 
 {% block header_p %}Ressources, bonnes pratiques et actualité des développements au SGN.{% endblock %}
 
+{% block header_container_more %}
+	<div>
+		{% if app.request.get('_route') == 'sgn_devblog_blog_index' %}
+			<div class="headerMore">
+				<p><strong>Bienvenu sur la page d'accueil du blog.</strong></p><p>Cette page regroupe l'ensemble des articles du blog, exception faite des articles tagués : <a href="{{ path('sgn_devblog_blog_tags_1', {'tags': 'pour-les-curieux'}) }}" class="label label-info">#pour-les-curieux</a>.</p>
+			</div>
+		{% elseif 'pour-les-curieux' in tagList|default([]) %}
+			<div class="headerMore">
+				<p><span class="label label-info">#pour-les-curieux</span> : Le tag fourre tout, mais surtout celui à utiliser pour ne pas polluer la page actualité.</p>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}
+
 {% block sidemenu %}
 	{{ esMenu('main') }}
+	<div style="width: 228px;text-align:left;"><span class="label {% if entities|length == 0 %}{% else %}label-success{% endif %}" style="text-align:right;margin-top:15px;">{{ entities|length }}{% if entities|length == 1 or entities|length == 0 %} article trouvé.{% elseif  entities|length > 1 %} articles trouvés.{% endif %}</span></div>
 	{% if tagElems is defined %}
 		<h5 style="text-align:left;">Liste des tags : </h5>
 		<div id="tagList">
@@ -27,17 +42,17 @@
 				{% endfor %}
 				{% set newList = newList|trim('/') %}
 				{% if newList == '' %}
-					<a class="btn btn-inverse" href="{{ path('sgn_devblog_blog_index') }}" title="{{ tag }}">#{{ tag }}</a> <em class="nbUse" style="color: red;">(-)</em><br/>
+					<a class="btn btn-mini btn-inverse" href="{{ path('sgn_devblog_blog_index') }}" title="{{ tag }}">#{{ tag }}</a> <em class="nbUse"><span class="badge badge-important">-</span></em><br/>
 				{% else %}
-					<a class="btn btn-inverse" href="{{ path('sgn_devblog_blog_tags_1', {'tags': newList }) }}" title="{{ tag }}">#{{ tag }}</a> <em class="nbUse" style="color: red;">(-)</em><br/>
+					<a class="btn btn-mini btn-inverse" href="{{ path('sgn_devblog_blog_tags_1', {'tags': newList }) }}" title="{{ tag }}">#{{ tag }}</a> <em class="nbUse"><span class="badge badge-important">-</span></em><br/>
 				{% endif %}
 			{% endfor %}
 			{% for tag in tagElems %}
-				<a class="btn btn-info" href="{{ path('sgn_devblog_blog_tags_1', {'tags': tagList|join('/') ~ '/' ~ tag[0].name}) }}" title="{{ tag[0].name }}">#{{ tag[0].name }}</a> <em class="nbUse">({{ tag['a'] }})</em><br/>
+				<a class="btn btn-mini btn-primary" href="{{ path('sgn_devblog_blog_tags_1', {'tags': tagList|join('/') ~ '/' ~ tag[0].name}) }}" title="{{ tag[0].name }}">#{{ tag[0].name }}</a> <em class="nbUse"><span class="badge badge-success">{{ tag['a'] }}</span></em><br/>
 			{% endfor %}
 		{% else %}
 			{% for tag in tagElems %}
-				<a class="btn btn-info" href="{{ path('sgn_devblog_blog_tags_1', {'tags': tag[0].name}) }}" title="{{ tag[0].name }}">#{{ tag[0].name }}</a> <em class="nbUse">({{ tag['a'] }})</em><br/>
+				<a class="btn btn-mini btn-primary" href="{{ path('sgn_devblog_blog_tags_1', {'tags': tag[0].name}) }}" title="{{ tag[0].name }}">#{{ tag[0].name }}</a> <em class="nbUse"><span class="badge badge-success">{{ tag['a'] }}</span></em><br/>
 			{% endfor %}
 		{% endif %}
 		</div>

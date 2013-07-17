@@ -13,3 +13,23 @@
 .alert .btn {
 	margin:2px;
 }
+
+div.headerMore {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: justify;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 0 !important;
+	padding: 15px;
+	height: auto !important;
+	overflow: hidden;
+	font-size: 13px !important;
+	line-height: 18px !important;
+	background: #222 !important;
+	background: rgba(0, 0, 0, 0.5) !important;
+	border: 0 !important;
+	border-radius: 4px;
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.1);
+	width: 335px;
+}
