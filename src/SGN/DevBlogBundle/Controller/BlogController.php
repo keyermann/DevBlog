@@ -71,7 +71,7 @@ class BlogController extends Controller
 		{
 	        $entities = $pagerfanta
 	            // Le nombre maximum d'éléments par page
-	            ->setMaxPerPage(3)
+	            ->setMaxPerPage(5)
 	            // Notre position actuelle (numéro de page)
 	            ->setCurrentPage($page)
 	            // On récupère nos entités via Pagerfanta,
