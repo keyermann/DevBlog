@@ -28,7 +28,7 @@
 
 {% block sidemenu %}
 	{{ esMenu('main') }}
-	<div style="width: 228px;text-align:left;"><span class="label {% if entities|length == 0 %}{% else %}label-success{% endif %}" style="text-align:right;margin-top:15px;">{{ entities|length }}{% if entities|length == 1 or entities|length == 0 %} article trouvé.{% elseif  entities|length > 1 %} articles trouvés.{% endif %}</span></div>
+	<div style="width: 228px;text-align:left;"><span class="label {% if entities|length == 0 %}{% else %}label-success{% endif %}" style="text-align:right;margin-top:15px;">{{ nbArticle }}{% if nbArticle == 1 or nbArticle == 0 %} article trouvé.{% elseif  nbArticle > 1 %} articles trouvés.{% endif %}</span></div>
 	{% if tagElems is defined %}
 		<h5 style="text-align:left;">Liste des tags : </h5>
 		<div id="tagList">
@@ -85,5 +85,5 @@
 	{{ parent() }}
     {{ article_script('ROLE_DEV', false) }}
     {{ transEditScript('ROLE_TRANSLATION', false) }}
-    <script src="{{ asset('bundles/sgndevblog/js/google-code-prettify/run_prettify.js') }}?lang=css&skin=sons-of-obsidian"></script>
+    {#<script src="{{ asset('bundles/sgndevblog/js/google-code-prettify/run_prettify.js') }}?lang=css&skin=sons-of-obsidian"></script>#}
 {% endblock %}

@@ -98,8 +98,8 @@ elsass_seeraiwer_es_article:
     tagpath: 'sgn_devblog_blog_tags_1'
     tinymce: 
         content_css: 
-            - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap.min.css"
-            - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap-responsive.min.css"
+            # - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap.min.css"
+            # - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap-responsive.min.css"
             - "%completehost%/bundles/sgntemplate/css/devblog.css"
             # - 'http://localhost/WebITRF/web/bundles/itrfwebsite/css/itrf.css'
         plugin: "code hr link table save anchor searchreplace fullscreen charmap visualblocks image media nonbreaking autolink advlist contextmenu"
@@ -109,15 +109,33 @@ elsass_seeraiwer_es_article:
         tools: "inserttable"
         nonbreaking_force_tab: true
         save_enablewhendirty: true
+        extended_valid_elements: "pre[class]"
         # Le symbole "|" sur la première ligne est très important !! Il permet de predre la suite pour une chaine et non du contenu YML et de préserver les saut de ligne.
         style_formats: |
             [
                 {title: 'Titre 1', block: 'h2'},
                 {title: 'Titre 2', block: 'h3'},
                 {title: 'Titre 3', block: 'h4'},
-                {title: 'Paragraphe normal', block: 'p'}
+                {title: 'Paragraphe normal', block: 'p'},
+                {title: 'Error', block: 'div', classes: 'alert alert-error'},
+                {title: 'Warning', block: 'div', classes: 'alert alert-block'},
+                {title: 'Success', block: 'div', classes: 'alert alert-success'},
+                {title: 'Info', block: 'div', classes: 'alert alert-info'},
+                {title: 'Label Default', block: 'span', classes: 'label'},
+                {title: 'Label Success', block: 'span', classes: 'label label-success'},
+                {title: 'Label Warning', block: 'span', classes: 'label label-warning'},
+                {title: 'Label Important', block: 'span', classes: 'label label-important'},
+                {title: 'Label Info', block: 'span', classes: 'label label-info'},
+                {title: 'Label Inverse', block: 'span', classes: 'label label-inverse'},
+                {title: 'Badges Default', block: 'span', classes: 'badge'},
+                {title: 'Badges Success', block: 'span', classes: 'badge badge-success'},
+                {title: 'Badges Warning', block: 'span', classes: 'badge badge-warning'},
+                {title: 'Badges Important', block: 'span', classes: 'badge badge-important'},
+                {title: 'Badges Info', block: 'span', classes: 'badge badge-info'},
+                {title: 'Badges Inverse', block: 'span', classes: 'badge badge-inverse'}                
             ]
-#                {title: 'Pretty Code', block: 'xmp', classes: 'prettyprint lang-php linenums'}
+
+# {title: 'Pretty Code', block: 'pre', classes: 'prettyprint lang-php linenums'}
 
 jms_translation:
     locales: [fr, en]

@@ -44,6 +44,12 @@ class BlogController extends Controller
 	    	$ignoreId[] = $value['id'];
 	    }
 
+        $qbCount = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
+        	->select('count(a.id)')
+        	->from('ElsassSeeraiwerESArticleBundle:Article','a')
+	        ->where("a.status = 'published'");
+	    $count = $qbCount->getQuery()->getSingleScalarResult();
+
 	    $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
 	        ->select('a')
 	        ->from('ElsassSeeraiwerESArticleBundle:Article', 'a')
@@ -71,7 +77,7 @@ class BlogController extends Controller
 		{
 	        $entities = $pagerfanta
 	            // Le nombre maximum d'éléments par page
-	            ->setMaxPerPage(3)
+	            ->setMaxPerPage(5)
 	            // Notre position actuelle (numéro de page)
 	            ->setCurrentPage($page)
 	            // On récupère nos entités via Pagerfanta,
@@ -88,6 +94,7 @@ class BlogController extends Controller
 	        'entities' 	=> $entities,
 	        'pager' 	=> $pagerfanta,
 	        'tagElems'	=> $TagMenuEntities,
+	        'nbArticle'	=> $count,
 	    );
     }
 
@@ -103,6 +110,17 @@ class BlogController extends Controller
 
         $tagList = array_unique(explode("/", trim($tags, '/')));
 	    $nbTagList = count($tagList);
+
+        $qbCount = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
+        	->select('count(a.id)')
+        	->from('ElsassSeeraiwerESArticleBundle:Article','a')
+	        ->leftJoin("a.tags", 't')
+	        ->where("a.status = 'published'")
+	        ->andWhere("t.name IN ('".implode("','", $tagList)."')")
+	        ->groupBy('a')
+	    	->having('COUNT(a.id) = '.$nbTagList)
+	    	->orderBy('a.createDate', 'DESC');
+	    $count = $qbCount->getQuery()->getSingleScalarResult();
 
 	    $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
 	        ->select('a')
@@ -145,6 +163,7 @@ class BlogController extends Controller
 	        'pager' 	=> $pagerfanta,
 	        'tagList'	=> $tagList,
 	        'tagElems'	=> $TagMenuEntities,
+	        'nbArticle'	=> $count,
 	    );
     }
 
