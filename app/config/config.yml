@@ -117,6 +117,7 @@ elsass_seeraiwer_es_article:
                 {title: 'Titre 3', block: 'h4'},
                 {title: 'Paragraphe normal', block: 'p'}
             ]
+#                {title: 'Pretty Code', block: 'xmp', classes: 'prettyprint lang-php linenums'}
 
 jms_translation:
     locales: [fr, en]

@@ -29,12 +29,17 @@
         "stof/doctrine-extensions-bundle": "1.1.*@dev",
         "elsass-seeraiwer/article-bundle": "dev-master",
         "elsass-seeraiwer/menu-bundle": "dev-master",
-        "white-october/pagerfanta-bundle": "dev-master"
+        "white-october/pagerfanta-bundle": "dev-master",
+        "sgn/template-bundle": "dev-master"
     },
     "repositories": [
         {
             "type": "vcs",
             "url":  "git@github.com:ElsassSeeraiwer/JMSTranslationBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@cadillac:/home/git/sgn_template.git"
         }
     ],
     "scripts": {
