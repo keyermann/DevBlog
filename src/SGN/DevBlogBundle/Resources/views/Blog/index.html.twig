@@ -18,6 +18,20 @@
 		<h5 style="text-align:left;">Liste des tags : </h5>
 		<div id="tagList">
 		{% if tagList is defined%}
+			{% for tag in tagList %}
+				{% set newList = '' %}
+				{% for tagUrl in tagList %}
+					{% if tagUrl != tag %}
+						{% set newList = newList~'/'~tagUrl %}
+					{% endif %}
+				{% endfor %}
+				{% set newList = newList|trim('/') %}
+				{% if newList == '' %}
+					<a class="btn btn-inverse" href="{{ path('sgn_devblog_blog_index') }}" title="{{ tag }}">#{{ tag }}</a> <em class="nbUse" style="color: red;">(-)</em><br/>
+				{% else %}
+					<a class="btn btn-inverse" href="{{ path('sgn_devblog_blog_tags_1', {'tags': newList }) }}" title="{{ tag }}">#{{ tag }}</a> <em class="nbUse" style="color: red;">(-)</em><br/>
+				{% endif %}
+			{% endfor %}
 			{% for tag in tagElems %}
 				<a class="btn btn-info" href="{{ path('sgn_devblog_blog_tags_1', {'tags': tagList|join('/') ~ '/' ~ tag[0].name}) }}" title="{{ tag[0].name }}">#{{ tag[0].name }}</a> <em class="nbUse">({{ tag['a'] }})</em><br/>
 			{% endfor %}

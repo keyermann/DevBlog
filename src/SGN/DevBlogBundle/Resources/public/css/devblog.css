@@ -9,3 +9,7 @@
 	display: inline-block;
 	text-align: left;
 }
+
+.alert .btn {
+	margin:2px;
+}
