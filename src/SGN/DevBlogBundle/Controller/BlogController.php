@@ -117,7 +117,7 @@ class BlogController extends Controller
 	    $nbTagList = count($tagList);
 
         $qbCount = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
-        	->select('count(a.id)')
+        	->select('a.id')
         	->from('ElsassSeeraiwerESArticleBundle:Article','a')
 	        ->leftJoin("a.tags", 't')
 	        ->where("a.status = 'published'")
@@ -125,7 +125,8 @@ class BlogController extends Controller
 	        ->andWhere("t.name IN ('".implode("','", $tagList)."')")
 	        ->groupBy('a')
 	    	->having('COUNT(a.id) = '.$nbTagList);
-	    $count = $qbCount->getQuery()->getSingleScalarResult();
+	    $res = $qbCount->getQuery()->getResult();
+	    $count = count($res);
 
 	    $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
 	        ->select('a')
