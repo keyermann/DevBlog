@@ -98,8 +98,8 @@ elsass_seeraiwer_es_article:
     tagpath: 'sgn_devblog_blog_tags_1'
     tinymce: 
         content_css: 
-            - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap.min.css"
-            - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap-responsive.min.css"
+            # - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap.min.css"
+            # - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap-responsive.min.css"
             - "%completehost%/bundles/sgntemplate/css/devblog.css"
             # - 'http://localhost/WebITRF/web/bundles/itrfwebsite/css/itrf.css'
         plugin: "code hr link table save anchor searchreplace fullscreen charmap visualblocks image media nonbreaking autolink advlist contextmenu"
