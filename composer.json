@@ -30,7 +30,8 @@
         "elsass-seeraiwer/article-bundle": "dev-master",
         "elsass-seeraiwer/menu-bundle": "dev-master",
         "white-october/pagerfanta-bundle": "dev-master",
-        "sgn/template-bundle": "dev-master"
+        "sgn/template-bundle": "dev-master",
+        "sgn/user-bundle": "dev-master"
     },
     "repositories": [
         {
@@ -40,6 +41,10 @@
         {
             "type": "vcs",
             "url":  "git@cadillac:/home/git/sgn_template.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@cadillac:/home/git/sgn_user.git"
         }
     ],
     "scripts": {
