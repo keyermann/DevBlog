@@ -109,6 +109,7 @@ elsass_seeraiwer_es_article:
         tools: "inserttable"
         nonbreaking_force_tab: true
         save_enablewhendirty: true
+        extended_valid_elements: "pre[class]"
         # Le symbole "|" sur la première ligne est très important !! Il permet de predre la suite pour une chaine et non du contenu YML et de préserver les saut de ligne.
         style_formats: |
             [
@@ -131,9 +132,10 @@ elsass_seeraiwer_es_article:
                 {title: 'Badges Warning', block: 'span', classes: 'badge badge-warning'},
                 {title: 'Badges Important', block: 'span', classes: 'badge badge-important'},
                 {title: 'Badges Info', block: 'span', classes: 'badge badge-info'},
-                {title: 'Badges Inverse', block: 'span', classes: 'badge badge-inverse'}
+                {title: 'Badges Inverse', block: 'span', classes: 'badge badge-inverse'}                
             ]
-#                {title: 'Pretty Code', block: 'xmp', classes: 'prettyprint lang-php linenums'}
+
+# {title: 'Pretty Code', block: 'pre', classes: 'prettyprint lang-php linenums'}
 
 jms_translation:
     locales: [fr, en]
