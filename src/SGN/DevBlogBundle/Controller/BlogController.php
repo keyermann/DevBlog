@@ -51,6 +51,7 @@ class BlogController extends Controller
 	        ->where("a.status = 'published'")
 	        ->andWhere("a.publicationDate < '".$nowDate->format('d-m-Y H:i').":00'")
         ;
+	    if(count($ignoreId) > 0){ $qbCount->andWhere("a.id NOT IN (".implode(",", $ignoreId).")"); }
 	    $count = $qbCount->getQuery()->getSingleScalarResult();
 
 	    $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
