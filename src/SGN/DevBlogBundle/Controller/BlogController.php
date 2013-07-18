@@ -30,6 +30,7 @@ class BlogController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $ArticleRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Article');
+        $nowDate = new \DateTime('now');
 
 	    $qbIgnore = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
 	        ->select('a.id')
@@ -47,17 +48,21 @@ class BlogController extends Controller
         $qbCount = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
         	->select('count(a.id)')
         	->from('ElsassSeeraiwerESArticleBundle:Article','a')
-	        ->where("a.status = 'published'");
+	        ->where("a.status = 'published'")
+	        ->andWhere("a.publicationDate < '".$nowDate->format('d-m-Y H:i').":00'")
+        ;
+	    if(count($ignoreId) > 0){ $qbCount->andWhere("a.id NOT IN (".implode(",", $ignoreId).")"); }
 	    $count = $qbCount->getQuery()->getSingleScalarResult();
 
 	    $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
 	        ->select('a')
 	        ->from('ElsassSeeraiwerESArticleBundle:Article', 'a')
 	        ->where("a.status = 'published'")
+	        ->andWhere("a.publicationDate < '".$nowDate->format('d-m-Y H:i').":00'")
         ;
 
 	    if(count($ignoreId) > 0){ $qb->andWhere("a.id NOT IN (".implode(",", $ignoreId).")"); }
-   		$qb->orderBy('a.createDate', 'DESC');
+   		$qb->orderBy('a.publicationDate', 'DESC');
 
         $TagRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Tag');
         $TagMenuEntities = $TagRepo->getAllByCount();
@@ -107,30 +112,33 @@ class BlogController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $ArticleRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Article');
+        $nowDate = new \DateTime('now');
 
         $tagList = array_unique(explode("/", trim($tags, '/')));
 	    $nbTagList = count($tagList);
 
         $qbCount = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
-        	->select('count(a.id)')
+        	->select('a.id')
         	->from('ElsassSeeraiwerESArticleBundle:Article','a')
 	        ->leftJoin("a.tags", 't')
 	        ->where("a.status = 'published'")
+	        ->andWhere("a.publicationDate < '".$nowDate->format('d-m-Y H:i').":00'")
 	        ->andWhere("t.name IN ('".implode("','", $tagList)."')")
 	        ->groupBy('a')
-	    	->having('COUNT(a.id) = '.$nbTagList)
-	    	->orderBy('a.createDate', 'DESC');
-	    $count = $qbCount->getQuery()->getSingleScalarResult();
+	    	->having('COUNT(a.id) = '.$nbTagList);
+	    $res = $qbCount->getQuery()->getResult();
+	    $count = count($res);
 
 	    $qb = $this->getDoctrine()->getEntityManager()->createQueryBuilder()
 	        ->select('a')
 	        ->from('ElsassSeeraiwerESArticleBundle:Article', 'a')
 	        ->leftJoin("a.tags", 't')
 	        ->where("a.status = 'published'")
+	        ->andWhere("a.publicationDate < '".$nowDate->format('d-m-Y H:i').":00'")
 	        ->andWhere("t.name IN ('".implode("','", $tagList)."')")
 	        ->groupBy('a')
 	    	->having('COUNT(a.id) = '.$nbTagList)
-	    	->orderBy('a.createDate', 'DESC')
+	    	->orderBy('a.publicationDate', 'DESC')
     	;
 
 	    // Classe spécifique à Doctrine, il existe un équivalent pour Propel.
