@@ -1,7 +1,11 @@
 #tagList {
 	text-align: right;
 	width:228px;
-	padding: 15px 0;
+	clear: both;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 430px;
+	position: relative;
 }
 
 #tagList .nbUse {
