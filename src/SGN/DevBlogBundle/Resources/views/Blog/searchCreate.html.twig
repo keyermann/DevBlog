@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_errors(form.tags) }}
+    {{ form_widget(form.tags) }}
+	<div class="btn-group">
+        {{ form_widget(form.search) }}
+	    {% if is_granted('ROLE_DEV') %}
+	    	{{ form_widget(form.create) }}
+		{% endif %}
+	</div>
+{{ form_end(form) }}
+<script src="{{ asset("bundles/jmstranslation/js/jquery.min.js") }}"></script>
+<script>
+	$(document).ready(function() {
+		$(".input-search").select2({
+			tags:{{ searchTagList|json_encode|raw }},
+            tokenSeparators: [",","/"]
+		});
+	});
+</script>
