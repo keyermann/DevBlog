@@ -207,6 +207,7 @@ class BlogController extends Controller
 			))
             ->add('search', 'submit', array(
             	'attr'		=> array(
+            		'label'		=> 'Rechercher',
             		'class'		=> 'btn btn-primary',
         		),
         	));
@@ -214,6 +215,7 @@ class BlogController extends Controller
     	if ($this->get('security.context')->isGranted('ROLE_DEV')) {
         	$formBuild->add('create', 'submit', array(
             	'attr'		=> array(
+            		'label'		=> 'Créer article',
             		'class'		=> 'btn btn-success',
         		),
         	));
