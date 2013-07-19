@@ -1,5 +1,5 @@
 #tagList {
-	text-align: left;
+	text-align: right;
 	width:228px;
 	clear: both;
 	overflow-y: auto;
@@ -11,7 +11,7 @@
 #tagList .nbUse {
 	width:35px;
 	display: inline-block;
-	text-align: left;
+	text-align: right;
 }
 
 .alert .btn {
