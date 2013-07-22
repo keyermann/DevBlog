@@ -5,7 +5,7 @@
 	<img style="margin-left:5px;" src="{{ asset('bundles/sgndevblog/images/lego.png') }}" alt="logo" />
 {% endblock %}
 
-{% block header_p %}Ressources, bonnes pratiques et actualité des développements au SGN.{% endblock %}
+{% block header_p %}{{ 'header_p'|transEdit({}, 'DevBlog') }}{% endblock %}
 
 {% block sidemenu %}{{ esMenu('main') }}{% endblock %}
 
