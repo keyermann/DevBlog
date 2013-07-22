@@ -1,3 +1,8 @@
+sgn_docentity:
+    resource: "@SGNDocEntityBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 _welcome:
     pattern:  /
     defaults:
@@ -37,7 +42,7 @@ sgn_template:
     requirements:
         _locale: en|fr
 
-# ElsassSeeraiwerBundles : 
+# ElsassSeeraiwerBundles :
 
 elsass_seeraiwer_es_article:
     resource: "@ElsassSeeraiwerESArticleBundle/Controller/"
@@ -52,6 +57,17 @@ elsass_seeraiwer_es_menu:
     resource: "@ElsassSeeraiwerESMenuBundle/Controller/"
     type:     annotation
     prefix:   /{_locale}/admin
+    defaults:
+        _locale: fr
+    requirements:
+        _locale: en|fr
+
+# DocEntityBundle :
+
+sgn_docentity:
+    resource: "@SGNDocEntityBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/docentity
     defaults:
         _locale: fr
     requirements:
