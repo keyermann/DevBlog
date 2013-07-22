@@ -1,43 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
-  <file date="2013-07-13T18:24:31Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+  <file date="2013-07-22T09:24:10Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
     <header>
       <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
       <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
     </header>
     <body>
-      <trans-unit id="59129aacfb6cebbe2c52f30ef3424209f7252e82" resname="66" extradata="Meaning: Petit test 1">
-        <jms:reference-file line="9">views/Default/index.html.twig</jms:reference-file>
-        <source>66</source>
-        <target>66qsd </target>
-      </trans-unit>
-      <trans-unit id="cd3f0c85b158c08a2b113464991810cf2cdfc387" resname="666">
-        <source>666</source>
-        <target>666</target>
-      </trans-unit>
-      <trans-unit id="d321d6f7ccf98b51540ec9d933f20898af3bd71e" resname="77">
-        <source>77</source>
-        <target state="new">77</target>
-      </trans-unit>
       <trans-unit id="a8ff8fd207898612a41280ecd69fb6c8d6f6ad11" resname="Accueil">
         <jms:reference-file line="5">views/ESBar/homeBar.html.twig</jms:reference-file>
         <source>Accueil</source>
         <target state="new">Accueil</target>
-      </trans-unit>
-      <trans-unit id="937739c372a36f54004835db7837a5d241693c38" resname="Symfony2 is great" extradata="Meaning: Petit test MEANING">
-        <jms:reference-file line="7">views/Default/index.html.twig</jms:reference-file>
-        <source>Petit test DESC</source>
-        <target>Petit test DESC</target>
-      </trans-unit>
-      <trans-unit id="a94a8fe5ccb19ba61c4c0873d391e987982fbbd3" resname="test" extradata="Meaning: Petit test 1">
-        <jms:reference-file line="8">views/Default/index.html.twig</jms:reference-file>
-        <source>test</source>
-        <target>test</target>
-      </trans-unit>
-      <trans-unit id="32a89bdcec2d50f9dc9747cd47ecfc14cf9c3dbe" resname="tutu">
-        <jms:reference-file line="10">views/Default/index.html.twig</jms:reference-file>
-        <source>tutu</source>
-        <target>tutu</target>
       </trans-unit>
     </body>
   </file>

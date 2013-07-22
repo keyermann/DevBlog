@@ -4,11 +4,17 @@ namespace SGN\DevBlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use Pagerfanta\Pagerfanta\Exception\NotValidCurrentPageException;
+
 use ElsassSeeraiwer\ESArticleBundle\Entity\Article;
+use SGN\DevBlogBundle\Entity\TagCollection;
 
 class BlogController extends Controller
 {
@@ -180,6 +186,68 @@ class BlogController extends Controller
      * @Template()
      */
     public function articleAction($slug){
+    }
+
+
+    /**
+	 * @Route("/search-create/")
+     * @Template()
+     */
+    public function searchCreateAction(Request $request)
+    {
+    	$tagCollection = new TagCollection();
+
+    	$formBuild = $this->createFormBuilder($tagCollection, array('attr' => array('class' => 'recherche')))
+    		->setAction($this->generateUrl('sgn_devblog_blog_searchcreate'))
+    		->add('tags', 'text', array(
+    			'label'		=> false,
+    			'attr'		=> array(
+    				'class'		=> 'input-xxlarge input-search',
+				),
+			))
+            ->add('search', 'submit', array(
+            	'attr'		=> array(
+            		'label'		=> 'Rechercher',
+            		'class'		=> 'btn btn-primary',
+        		),
+        	));
+
+    	if ($this->get('security.context')->isGranted('ROLE_DEV')) {
+        	$formBuild->add('create', 'submit', array(
+            	'attr'		=> array(
+            		'label'		=> 'Créer article',
+            		'class'		=> 'btn btn-success',
+        		),
+        	));
+        }
+
+        $form = $formBuild->getForm();
+
+        $em = $this->getDoctrine()->getManager();
+        $TagRepo = $em->getRepository('ElsassSeeraiwerESArticleBundle:Tag');
+        $TagMenuEntities = $TagRepo->getAllByName();
+        $searchTagList = array();
+
+        foreach ($TagMenuEntities as $tag) {
+        	$searchTagList[] = $tag->getName();
+        }
+    	$form->handleRequest($request);
+
+    	if ($form->isValid()) {
+    		if($form->get('search')->isClicked()) 
+    		{
+    			return $this->redirect($this->generateUrl('sgn_devblog_blog_tags_1', array('tags' => str_replace(',', '/', $tagCollection->getTags()))));
+		    }
+		    elseif($form->get('create')->isClicked())
+		    {
+		    	return $this->forward('ElsassSeeraiwerESArticleBundle:ArticleDB:addByTitle', array('titleTags'  => $tagCollection->getTags()));
+		    }
+	    }
+
+        return array(
+            'form' 				=> $form->createView(),
+            'searchTagList'		=> $searchTagList,
+        );
     }
 
     private function createTagListFromArticles($articles, $tagListIgnore)

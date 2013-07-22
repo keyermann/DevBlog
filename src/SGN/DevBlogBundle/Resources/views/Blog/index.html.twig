@@ -10,7 +10,7 @@
     <link rel="stylesheet" media="screen" href="{{ asset('bundles/sgndevblog/css/devblog.css') }}" />
 {% endblock %}
 
-{% block header_p %}Ressources, bonnes pratiques et actualité des développements au SGN.{% endblock %}
+{% block header_p %}{{ 'header_p'|transEdit({}, 'DevBlog') }}{% endblock %}
 
 {% block header_container_more %}
 	<div>
@@ -28,9 +28,14 @@
 
 {% block sidemenu %}
 	{{ esMenu('main') }}
-	<div style="width: 228px;text-align:left;"><span class="label {% if entities|length == 0 %}{% else %}label-success{% endif %}" style="text-align:right;margin-top:15px;">{{ nbArticle }}{% if nbArticle == 1 or nbArticle == 0 %} article trouvé.{% elseif  nbArticle > 1 %} articles trouvés.{% endif %}</span></div>
+	<div style="width: 228px;text-align:left;">
+		<span class="label {% if entities|length == 0 %}{% else %}label-success{% endif %}" style="text-align:right;margin-top:15px;">
+				{{ nbArticle }} {% if nbArticle == 1 or nbArticle == 0 %}{{ 'article.count_01'|transEdit({}, 'DevBlog') }}{% elseif  nbArticle > 1 %}{{ 'article.count_1+'|transEdit({}, 'DevBlog') }}{% endif %}
+				{#{ 'article.count'|transchoiceEdit(nbArticle, {}, 'DevBlog') }#}
+		</span>
+	</div>
 	{% if tagElems is defined %}
-		<h5 style="text-align:left;">Liste des tags : </h5>
+		<h5 style="text-align:left;">{{ 'liste.tags'|transEdit({}, 'DevBlog') }}</h5>
 		<div id="tagList">
 		{% if tagList is defined%}
 			{% for tag in tagList %}
@@ -60,9 +65,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="recherche" style="display:none;">
-		<span>Rechercher <em>(par tags)</em> <input type="text" /></span>
-	</div>
+	{{ render(controller('SGNDevBlogBundle:Blog:searchCreate')) }}
 	{% if entities is not empty %}
         {% for entity in entities %}</ul>
             {{ entity.slug|article() }}
