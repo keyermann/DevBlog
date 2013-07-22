@@ -96,8 +96,8 @@ elsass_seeraiwer_es_article:
     locales: ['fr', 'en']
     default_authorized_role:  ROLE_DEV
     tagpath: 'sgn_devblog_blog_tags_1'
-    tinymce: 
-        content_css: 
+    tinymce:
+        content_css:
             # - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap.min.css"
             # - "%completehost%/bundles/sgntemplate/css/bootstrap-2.3.2/bootstrap-responsive.min.css"
             - "%completehost%/bundles/sgntemplate/css/devblog.css"
@@ -132,7 +132,7 @@ elsass_seeraiwer_es_article:
                 {title: 'Badges Warning', block: 'span', classes: 'badge badge-warning'},
                 {title: 'Badges Important', block: 'span', classes: 'badge badge-important'},
                 {title: 'Badges Info', block: 'span', classes: 'badge badge-info'},
-                {title: 'Badges Inverse', block: 'span', classes: 'badge badge-inverse'}                
+                {title: 'Badges Inverse', block: 'span', classes: 'badge badge-inverse'}
             ]
 
 # {title: 'Pretty Code', block: 'pre', classes: 'prettyprint lang-php linenums'}
@@ -142,7 +142,7 @@ jms_translation:
     tinymce_mod: []
     configs:
         app:
-            dirs: ['@SGNDevBlogBundle']
+            dirs: ['@SGNDevBlogBundle','@SGNDocEntityBundle']
             output_dir: %kernel.root_dir%/Resources/translations
             ignored_domains: [routes]
             excluded_names: [*TestCase.php, *Test.php, *.php]
@@ -163,3 +163,10 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - name: twig.extension
+
+# SGNDocEntityBundle :
+
+sgn_doc_entity:
+    sgn_docentity_bundles: [ElsassSeeraiwerESArticleBundle]
+    #sgn_docentity_template: "SGNTemplateBundle:Geodesie_v1:base.960gs.html.twig"
+    sgn_docentity_template: "SGNTemplateBundle:DevBlog:base.html.twig"

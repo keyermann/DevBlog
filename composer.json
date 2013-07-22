@@ -30,8 +30,10 @@
         "elsass-seeraiwer/article-bundle": "dev-master",
         "elsass-seeraiwer/menu-bundle": "dev-master",
         "white-october/pagerfanta-bundle": "dev-master",
+        "elao/web-profiler-extra-bundle" : "dev-master",
         "sgn/template-bundle": "dev-master",
-        "sgn/user-bundle": "dev-master"
+        "sgn/user-bundle": "dev-master",
+        "sgn/docentity-bundle": "dev-master"
     },
     "repositories": [
         {
@@ -45,6 +47,10 @@
         {
             "type": "vcs",
             "url":  "git@cadillac:/home/git/sgn_user.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@cadillac:/home/git/sgn_docentity.git"
         }
     ],
     "scripts": {
