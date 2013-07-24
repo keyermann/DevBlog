@@ -87,6 +87,7 @@ elsass_seeraiwer_es_bar:
     registration: false
     templates:
         - { name: "home", next:false, template: "SGNDevBlogBundle:ESBar:homeBar.html.twig" }
+        - { name: "links", next:true, template: "SGNDevBlogBundle:ESBar:linkBar.html.twig" }
 #        - { name: "menu", template: "SGNTemplateBundle:DevBlog:esBarMenu.html.twig" }
         - { name: "esmenu", template: "ElsassSeeraiwerESMenuBundle:ESBar:esmenuBar.html.twig", parameters:{'authorized_role': 'ROLE_MENU'} }
         - { name: "translation", template: "JMSTranslationBundle:ESBar:translationBar.html.twig", parameters:{'authorized_role': 'ROLE_TRANSLATION'} }
