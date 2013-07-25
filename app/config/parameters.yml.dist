@@ -1,18 +1,24 @@
 parameters:
-    database_driver: pdo_pgsql
-    database_host: theHost
-    database_port: null
-    database_name: theBase
-    database_user: theUser
-    database_password: thePass
-    database_path: null
+    sgn_database_driver:    pdo_pgsql
+    sgn_database_host:      cadillac
+    sgn_database_port:      ~
+    sgn_database_name:      sgn
+    sgn_database_user:      bd_sgn_admin
+    sgn_database_password:  Si_vous_ne_le_connaissez_pas_demandez_le
 
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    database_driver:        pdo_pgsql
+    database_host:          theHost
+    database_port:          ~
+    database_name:          theBase
+    database_user:          theUser
+    database_password:      thePass
 
-    locale: fr
-    secret: 781bb2fb1042cf75571010987b12f060318
+    mailer_transport:       smtp
+    mailer_host:            127.0.0.1
+    mailer_user:            ~
+    mailer_password:        ~
 
-    completehost: http://localhost/devblog
+    locale:                 fr
+    secret:                 781bb2fb1042cf75571010987b12f060318
+
+    completehost:           http://sgn.ign.fr/dev
